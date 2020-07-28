@@ -103,7 +103,55 @@ console.log(dogFeeder(15, 1));
 // use math.random to determine the computers choice 
 // hint while you can complete this with only conditionals based on strings it may help to equate choice to a number 
 
-//Can not quite figure out this one.
+function rockPaperScissors (myChoice) {
+    // console.log("test");
+    // rock:1, paper: 2, scissors: 3
+
+    //setting up the computer
+    let compNumber = Math.ceil(Math.random() * 3) // computer generates a number from 1 - 3
+                                                    // Math.ceil() function always rounds a number up to the next largest integer.
+
+                                                        //    console.log(Math.random()); // gives a number 0 -1
+                                                        //can multiply that number times 3 for the 3 choices
+                                                        //rounds up the number to whole number
+                                                        // console.log(Math.ceil(Math.random() * 3));
+
+    //setting up the player                                           
+    let player = 0;                       //first player has to start at 0
+    let winner = ""                             //Why is this null?
+    //setting up the player options
+    if (myChoice.toLowerCase() === "rock") {                  //if my choice is rock first, then it = to the number 1 since that is rock's position
+        player = 1;
+    } else if (myChoice.toLowerCase() === "paper") {             // second option is paper then it = the number 2 since that is paper's position
+        player = 2;
+    } else {
+        player = 3;                          //third option is scissors then it = the number 3 since that is scissor's position
+    }
+    // console.log(playerNumber);
+
+
+    //setting up the randomized choices
+    if (player === compNumber) {          //if the player number matches number inputed its a tie game
+        winner = "tie game"
+    } else if (player === 1 && compNumber === 2) { // player: rock, computer: paper - computer wins
+        winner = "computer wins"
+    } else if (player === 1 && compNumber === 3) { // player: rock, computer: scissors - player wins
+        winner = "player wins"
+    } else if (player === 2 && compNumber === 1) { // player: paper, computer: rock - player wins
+        winner = "player wins"
+    } else if (player === 2 && compNumber === 3) { // player: paper, computer: scissors - computer wins
+        winner = "computer wins"
+    } else if (player === 3 && compNumber === 1) { // player: scissors, computer: rock - player wins
+        winner = "computer wins"                            
+    } else {                                                 // player: scissors, computer: paper
+        winner = "player wins"                              //Need 6 actual sets of rules so that it can account for 3 turns on the computer and 3 turns for the player
+    }
+    return winner;    
+}
+console.log(rockPaperScissors("rock"));
+
+// let result = rockPaperScissors(myChoice); 
+// console.log(rockPaperScissors("scissors"));
 
 /************************************************************** Task 5 **************************************************************/
 //Metric Converter
